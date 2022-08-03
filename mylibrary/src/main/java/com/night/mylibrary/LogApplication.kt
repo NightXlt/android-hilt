@@ -14,27 +14,10 @@
  * limitations under the License.
  */
 
-buildscript {
-    ext.kotlin_version = '1.7.0'
-    ext.hilt_version = '2.42'
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
-        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
-    }
-}
+package com.night.mylibrary
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+@HiltAndroidApp
+class LogApplication : Application()
